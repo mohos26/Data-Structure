@@ -1,4 +1,4 @@
-# 16.01.2024
+# 16.01.2025
 
 
 class singly_linked_list:
@@ -66,6 +66,8 @@ class singly_linked_list:
 		while aid != i:
 			current = current.next
 			aid += 1
+		if current is None:
+			raise IndexError("Index out of range")
 		return current
 
 	def del_last(self):
