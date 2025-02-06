@@ -36,47 +36,38 @@ class circular_singly_linked_list:
 
 	def add_beginning(self, data):
 		copy = self.copy()
+		copy.last_node().next = self
 		self.data = data
-		self.next = circular_singly_linked_list(data)
-		self.merge(copy)
+		self.next = copy
 
 	def find(self, data):
-		pass
+		aid = 0
+		current = self
+		while current.data != data:
+			current = current.next
+			aid += 1
+			if current == self:
+				break
+		if current != self:
+			return aid
+		return -1
 
 	def get(self, i):
+		aid = 0
+		current = self
+		while aid != i:
+			current = current.next
+			aid += 1
+		return current
+
+	def del_last(self):
 		pass
 
+	def del_beginning(self):
+		pass
 
-node1 = circular_singly_linked_list("q")
+	def del_in(self, i):
+		pass
 
-for i in "qaxchjiop":
-	node1.add_last(i)
-
-
-Node1 = circular_singly_linked_list("gg")
-Node2 = circular_singly_linked_list("dd")
-Node3 = circular_singly_linked_list("ss")
-Node4 = circular_singly_linked_list("ww")
-
-
-
-Node1.next = Node2
-Node2.next = Node3
-Node3.next = Node4
-Node4.next = Node1
-
-node1.merge(Node1)
-
-print(node1)
-print(node1.copy())
-
-print("->", node1.length())
-print("->", node1.last_node().data)
-
-aid = node1
-
-while True:
-	print(aid.data)
-	aid = aid.next
-	if aid == node1:
-		break
+	def add_in(self, i):
+		pass
