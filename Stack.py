@@ -22,4 +22,3 @@ class stack:
 
 	def length(self):
 		return self.top.length()
-

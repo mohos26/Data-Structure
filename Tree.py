@@ -31,3 +31,13 @@ class Tree:
 		"""Removes a child node if it exists."""
 		if data in self.children:
 			del self.children[data]  # Remove from dictionary
+
+root = Tree(12)
+
+root.add_edge(8)
+root.add_edge(18)
+
+root.search_child(8).add_edge(5)
+root.search_child(8).add_edge(11)
+
+print(aid(root))
